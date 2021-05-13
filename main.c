@@ -39,7 +39,10 @@ int main(int argc, char **argv)
 			while (getline(&line, &size, document) != -1)
 			{
 				counter_line++;
-				/* Here the tokenizator */
+				if (isspace(*line) == 0)
+				{
+					tokenizator(line, counter_line);
+				}
 			}
 		}
 	}

@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
+
+/* Prototypes */
+int tokenizator(char *line, unsigned int line_number);
+char* remove_whitespaces(char *line);
+char* remove_newline(char *line);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or que

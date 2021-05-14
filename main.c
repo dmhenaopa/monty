@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	FILE *document;
 	char *line = NULL;
 	size_t size = 0;
-	int counter_line = 0;
+	unsigned int line_number = 0;
 
 	/* Verify if the number of arguments is 2 */
 	if (argc != 2)
@@ -38,11 +38,13 @@ int main(int argc, char **argv)
 		{
 			while (getline(&line, &size, document) != -1)
 			{
-				counter_line++;
-				if (isspace(*line) == 0)
-				{
-					tokenizator(line, counter_line);
-				}
+				line_number++;
+				/*if (isspace(*line) == 0)
+				{*/
+					remove_newline(line);
+					remove_whitespaces(line);
+					tokenizator(line, line_number);
+				/*}*/
 			}
 		}
 	}
